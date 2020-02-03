@@ -7,7 +7,6 @@
 // common point (assuming that the discs contain their borders).
 
 // The figure below shows discs drawn for N = 6 and A as follows:
-
 //   A[0] = 1
 //   A[1] = 5
 //   A[2] = 2
@@ -36,6 +35,13 @@ function solution(A) {
   return
 }
 
+function uniqueArray() {
+  for (var a=[],i=0;i<4000000;++i) a[i]=i;
+  return a
+}
 
-console.log('Solution 1: ', solution([10, 2, 5, 1, 8, 20]))
-console.log('Solution 2: ', solution([10, 50, 5, 1]))
+console.log('Solution 1: ', solution([2, 1, 1, 2, 3, 1, 8, 8]))
+console.log('Solution 2: ', solution(uniqueArray()))
+console.log('Solution 3: ', solution([...Array(49990)].map(e=>~~(Math.random()*4999))))
+
+

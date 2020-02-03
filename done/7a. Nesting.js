@@ -19,9 +19,31 @@
 
 
 function solution(A) {
+  let result = 0, charOpen = 0, charClose = 0, charSum = 0;
+  const arrayLength = A.length;
 
-  return
+  if (typeof A == 'undefined' || arrayLength == 0 || arrayLength == null) return result;
+  if (A.charAt(0).charCodeAt() == 41) return result;
+  if (arrayLength % 2 !== 0) return result;
+  if (A.charAt(arrayLength - 1).charCodeAt() !== 41) return result;
+
+  for (let char = 0; char < arrayLength; char++) {
+    if (!(A[char].charCodeAt() == 40 || A[char].charCodeAt() == 41)) break;
+    if (A[char].charCodeAt() == 40) {
+      charSum++
+      charOpen++
+    } else {
+      charSum--
+      charClose++
+    }
+  }
+
+  if (charOpen === charClose) result = 1
+  if (charSum === 0) result = 1
+
+  return result
 }
 
 
-console.log('Solution: ', solution([1,2,3]))
+console.log('Solution 1: ', solution('(()(())())'))
+console.log('Solution 2: ', solution('())'))
